@@ -8,6 +8,6 @@ public class Screens {
     public static final int MAIN_MENU = 0;
     public static final int GAME = 1;
     public static final int OPTIONS = 2;
-    public static final int CREDITS = 1; // 3
-
+    public static final int CREDITS = 3;
+    public static final int LLAW = 4;
 }

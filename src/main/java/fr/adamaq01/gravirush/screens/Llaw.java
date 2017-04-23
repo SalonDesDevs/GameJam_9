@@ -12,20 +12,18 @@ import fr.adamaq01.suplge.opengl.GLWindow;
 import fr.adamaq01.suplge.opengl.graphics.GLGraphics;
 import fr.adamaq01.suplge.opengl.utils.GLImage;
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.Random;
 
 /**
  * Created by Adamaq01 on 22/04/2017.
  */
-public class Credits implements IScreen<GLWindow, GLGraphics> {
+public class Llaw implements IScreen<GLWindow, GLGraphics> {
 
-    private Random random;
+    private IImage lellaw;
 
     @Override
     public void onEnable(Game<GLWindow> game) {
-        this.random = new Random();
+        this.lellaw = new GLImage(SuplgeEngine.getResourceWithoutBaseURL("https://lellaw.adamaq01.fr/"));
     }
 
     @Override
@@ -42,11 +40,6 @@ public class Credits implements IScreen<GLWindow, GLGraphics> {
 
     @Override
     public void render(Game<GLWindow> game, GLGraphics glGraphics) {
-        glGraphics.setColor(Color.GOLD);
-        glGraphics.drawString("Jeu cree par:", game.getWindow().getWidth() / 2 - ("Jeu cree par:".length() * "Jeu cree par:".length()), game.getWindow().getHeight() / 2, 1);
-        glGraphics.setRotation(random.nextInt(22) - 11);
-        glGraphics.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
-        glGraphics.drawString("Adamaq01", game.getWindow().getWidth() / 2 - ("Adamaq01".length() * "Adamaq01".length()), game.getWindow().getHeight() / 2 - 48, 1);
-        glGraphics.setRotation(0);
+        glGraphics.drawImage(this.lellaw, 0, 0, game.getWindow().getWidth(), game.getWindow().getHeight(), false);
     }
 }
